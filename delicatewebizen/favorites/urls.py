@@ -10,14 +10,13 @@ class FavoritesPublic(UrlCollection):
 
     def __init__(self, instance_namespace=None, queryset=None):
         super(FavoritesPublic, self).__init__(instance_namespace)
-        self.add_view(r'^all/$', ListView, dict(queryset=queryset), 'all')
+        self.add_url(r'^all/$', ListView, dict(queryset=queryset), 'all')
 
 
 class FavoritesPrivate(UrlCollection):
 
     application_namespace = 'favorites-private'
 
-
     def __init__(self, instance_namespace=None):
         super(FavoritesPrivate, self).__init__(instance_namespace)
-        self.add_view(r'^all/$', UserListView, name='all')
+        self.add_url(r'^all/$', UserListView, name='all')
